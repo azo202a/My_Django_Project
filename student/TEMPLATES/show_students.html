@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+   <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f7f6; /* لون خلفية خفيف */
+        direction: rtl; /* اتجاه النص من اليمين لليسار */
+        text-align: right; /* محاذاة النص لليمين */
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+        margin-top: 30px;
+    }
+    table {
+        width: 80%;
+        margin: 40px auto; /* توسيط الجدول */
+        border-collapse: separate;
+        border-spacing: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px; /* حواف دائرية */
+        overflow: hidden; /* لإخفاء الحواف الزائدة */
+    }
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+    th {
+        background-color: #2c3e50; /* لون أغمق للرأس */
+        color: #fff;
+        font-weight: bold;
+    }
+    /* تأثير الصفوف المتناوبة */
+    tbody tr:nth-child(even) {
+        background-color: #ecf0f1;
+    }
+    tbody tr:nth-child(odd) {
+        background-color: #fff;
+    }
+    /* تأثير عند تمرير المؤشر */
+    tbody tr:hover {
+        background-color: #bdc3c7;
+        transform: scale(1.02); /* تكبير طفيف للجدول */
+        transition: all 0.3s ease-in-out;
+    }
+</style>
+</head>
+<body>
+    <h1>قائمة الطلاب</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>الاسم الأول</th>
+                <th>اسم العائلة</th>
+                <th>العمر</th>
+                <th>النوع</th>
+                <th>المستوى</th>
+                <th>الحالة</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.FirstName }}</td>
+                <td>{{ student.LastName }}</td>
+                <td>{{ student.Age }}</td>
+                <td>{{ student.Gender }}</td>
+                <td>{{ student.Level }}</td>
+                <td>{{ student.Status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
